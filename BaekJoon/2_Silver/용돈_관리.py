@@ -24,17 +24,7 @@ def bin_search():
                 res = middle
     return res
 
-
 N, M = map(int, input().split())
-# 인출 최소 금액을 구하는 문제
-# 1. 인출했는데 사용할 수 있으면 그대로 사용한다. 남은 건 다음날 사용
-# 2. 부족하면 K만큼의 차액을 다시 넣고 K원을 인출
-# 3. M번을 꼭 다 사용할 필요는 없다
-# K가 최소이기만 하면 된다
 arr = [int(input()) for _ in range(N)]
 print(bin_search())
 
-
-
-
-# 500
