@@ -7,7 +7,7 @@ sys.stdin = open('../input.txt', 'r')
 
 def bin_search(idx):
     left, right = 1, L
-    res = 0
+    res = 1
     while left <= right:
         middle = (left+right)//2
         min_piece = L
@@ -15,7 +15,7 @@ def bin_search(idx):
         cnt = 0
         for i in range(M):
             piece = cut_spot[i]-last
-            if piece >= middle:
+            if piece >= middle and L-cut_spot[i] >= middle:
                 last = cut_spot[i]
                 cnt += 1
                 if piece < min_piece:
@@ -26,8 +26,9 @@ def bin_search(idx):
         # 만약 cnt가 일치하고 가장 작은 조각이 결과보다 크면 갱신
         # 갱신이면 사이즈를 키워본다
         if cnt >= cut_cnt[idx]:
-            res = min_piece
             left = middle + 1
+            if min_piece > res:
+                res = min_piece
         else:
             right = middle - 1
     return res
@@ -38,5 +39,3 @@ cut_spot = [int(input()) for _ in range(M)] # 자르는 위치
 cut_cnt = [int(input()) for _ in range(N)] # 몇 번 자를지
 for i in range(N):
     print(bin_search(i))
-
-# 1 1 1이라면?
