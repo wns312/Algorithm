@@ -1,2 +1,4 @@
-15
-ApPApPpAPpApPAp
+3
+2 2
+1 5
+13 29
